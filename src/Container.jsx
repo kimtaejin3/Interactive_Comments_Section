@@ -7,9 +7,8 @@ import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   max-width: 780px;
-  box-shadow: inset 5px royalblue;
-  background-color: royalblue;
   margin: 0 auto;
+  margin-top: 80px;
 `;
 
 const Container = () => {

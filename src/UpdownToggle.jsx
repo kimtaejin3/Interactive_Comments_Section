@@ -2,7 +2,7 @@ import React, { useState, useRef, memo } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import styled from "@emotion/styled";
-import { blueGrey, lightBlue, pink } from "@mui/material/colors";
+import { blueGrey, lightBlue, pink, indigo } from "@mui/material/colors";
 
 //메모 적용하기
 const UpdownToggle = memo(() => {
@@ -31,7 +31,7 @@ const UpdownToggle = memo(() => {
           "&:hover": {
             cursor: "pointer",
           },
-          color: blueGrey[200],
+          color: indigo[200],
         }}
         onClick={onPlusClick}
       />
@@ -41,7 +41,7 @@ const UpdownToggle = memo(() => {
           "&:hover": {
             cursor: "pointer",
           },
-          color: blueGrey[200],
+          color: indigo[200],
         }}
         onClick={onMinusClick}
       />
