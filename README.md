@@ -41,8 +41,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Built with
 
 - [React](https://reactjs.org/) - JS library
-- [MUI](https://styled-components.com/) - For styles
-- [Emotion]
+- [MUI](https://styled-components.com/)
+- [Emotion](https://emotion.sh/docs/introduction)
 
 ### What I learned
 
