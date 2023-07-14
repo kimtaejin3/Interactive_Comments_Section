@@ -3,7 +3,7 @@ import UpdownToggle from "./UpdownToggle";
 import CardContent from "./CardContent";
 import styled from "@emotion/styled";
 import { css } from "@emotion/css";
-
+import Avatar from "@mui/material/Avatar";
 const Container = styled.div`
   display: flex;
   gap: 24px;
@@ -14,11 +14,11 @@ const Container = styled.div`
   transition: all 1s linear;
 `;
 
-const Card = ({ isReply }) => {
-  const [showReply, setShowReply] = useState(false);
-  console.log("check2");
+const Card = ({ currentUser }) => {
+  const [showReplyForm, setShowReplyForm] = useState(false);
+  console.log(showReplyForm);
   const onClickHandler = () => {
-    setShowReply(false);
+    setShowReplyForm(false);
   };
 
   return (
@@ -38,53 +38,89 @@ const Card = ({ isReply }) => {
             },
           }}
           createdAt="1 month ago"
-          setShowReply={setShowReply}
+          setShowReplyForm={setShowReplyForm}
         />
       </Container>
 
-      {/* Reply */}
+      {/* "replies" */}
       <div
         className={css`
-          background-color: royalblue;
+          background-color: white;
           margin: 5px 0;
           margin-left: 50px;
           margin-top: 20px;
           margin-bottom: 20px;
+          padding-left: 50px;
+          border-left: 5px solid;
         `}
       >
         ReComments
       </div>
 
-      {showReply && (
-        <div
-          className={css`
-            @keyframes move {
-              0% {
-                margin-top: -200px;
-                opacity:0;
-              }
-              50% {
-                margin-top: -100px
-                opacity:0.5;
-              }
-              100%{
-                margin-top:0;
-                opacity:1;
-              }
-            }
-
-            animation-duration: 1s;
-            animation-name: move;
-            margin-bottom:150px;
-
-          `}
-        >
-          Reply Component
-          <button onClick={onClickHandler}>X</button>
-        </div>
+      {/* from에 입력하면 reply 배열에 추가하기 */}
+      {showReplyForm && (
+        <ReplyForm>
+          <div>
+            <Avatar src={currentUser.image.png} />
+          </div>
+          <div
+            className={css`
+              flex-grow: 1;
+            `}
+          >
+            <form
+              className={css`
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+              `}
+            >
+              <textarea
+                className={css`
+                  flex-grow: 1;
+                  height: 100px;
+                  border-radus: 20px;
+                  overflow: hidden;
+                  border: none;
+                  border: 1px solid #ddd;
+                  border-radius: 8px;
+                  padding: 10px;
+                  &::placeholder {
+                    font-size: 16px;
+                    color: #67727e;
+                    font-family: "Consolas";
+                  }
+                `}
+                placeholder="Add a comment"
+                type="text"
+              />
+              <button
+                className={css`
+                  border: none;
+                  background-color: #5357b6;
+                  color: white;
+                  border-radius: 8px;
+                  width: 104px;
+                  height: 48px;
+                `}
+              >
+                Send
+              </button>
+            </form>
+          </div>
+        </ReplyForm>
       )}
     </div>
   );
 };
+
+const ReplyForm = styled.div`
+  background-color: white;
+  padding: 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 8px;
+`;
 
 export default Card;

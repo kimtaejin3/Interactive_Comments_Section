@@ -7,14 +7,14 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const CardContent = ({ user, createdAt, setShowReply }) => {
+const CardContent = ({ user, createdAt, setShowReplyForm }) => {
   return (
     <>
       <Container>
         <CardTop
           user={user}
           createdAt={createdAt}
-          setShowReply={setShowReply}
+          setShowReplyForm={setShowReplyForm}
         />
 
         <p

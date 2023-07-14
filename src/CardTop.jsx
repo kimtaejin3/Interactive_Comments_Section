@@ -4,10 +4,10 @@ import ReplyIcon from "@mui/icons-material/Reply";
 import Stack from "@mui/material/Stack";
 import { css } from "@emotion/css";
 
-const CardTop = ({ user, createdAt, setShowReply }) => {
+const CardTop = ({ user, createdAt, setShowReplyForm }) => {
   const handleClick = () => {
-    if (setShowReply) {
-      setShowReply(true);
+    if (setShowReplyForm) {
+      setShowReplyForm((prev) => !prev);
     }
   };
 

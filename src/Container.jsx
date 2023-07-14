@@ -15,7 +15,19 @@ const Container = () => {
     <Wrapper disableGutters maxWidth="md" sx={{ bgcolor: "#cfe8fc" }}>
       {[1, 2].map((v, i) => {
         console.log("check");
-        return <Card key={i} isReply={false} />;
+        return (
+          <Card
+            key={i}
+            isReply={false}
+            currentUser={{
+              image: {
+                png: "./images/avatars/image-juliusomo.png",
+                webp: "./images/avatars/image-juliusomo.webp",
+              },
+              username: "juliusomo",
+            }}
+          />
+        );
       })}
     </Wrapper>
   );
