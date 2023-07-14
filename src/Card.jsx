@@ -11,17 +11,22 @@ const Container = styled.div`
   padding: 24px;
   box-sizing: border-box;
   border-radius: 8px;
+  transition: all 1s linear;
 `;
 
 const Card = ({ isReply }) => {
   const [showReply, setShowReply] = useState(false);
-
+  console.log("check2");
   const onClickHandler = () => {
     setShowReply(false);
   };
 
   return (
-    <>
+    <div
+      className={css`
+        margin-top: 30px;
+      `}
+    >
       <Container>
         <UpdownToggle />
         <CardContent
@@ -36,6 +41,20 @@ const Card = ({ isReply }) => {
           setShowReply={setShowReply}
         />
       </Container>
+
+      {/* Reply */}
+      <div
+        className={css`
+          background-color: royalblue;
+          margin: 5px 0;
+          margin-left: 50px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        `}
+      >
+        ReComments
+      </div>
+
       {showReply && (
         <div
           className={css`
@@ -64,7 +83,7 @@ const Card = ({ isReply }) => {
           <button onClick={onClickHandler}>X</button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
